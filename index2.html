@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matthew Mueller | Accounting & Information Systems at UW Foster</title>
+<meta name="description" content="Personal site of Matthew Mueller: Accounting and Information Systems student at UW Foster, incoming Deloitte audit intern, and competitive cyclist.">
+<meta property="og:title" content="Matthew Mueller | Accounting & Information Systems at UW Foster">
+<meta property="og:description" content="Accounting and Information Systems student at UW Foster, incoming Deloitte audit intern, and competitive cyclist.">
+<meta property="og:type" content="profile">
+<!-- After you publish, you can add a preview image for link sharing here.
+     It must be a FULL address, for example:
+     <meta property="og:image" content="https://YOURNAME.github.io/images/headshot.jpg"> -->
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6F7F4">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121513">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23175C3D'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-size='34' font-weight='700' fill='%23F6F7F4' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<script>
+/* ===========================================================================
+   EDIT YOUR SITE HERE. This block is the only thing you need to touch.
+   ---------------------------------------------------------------------------
+   HOW IT WORKS
+   1. Every word, link, number, job, and photo on the page comes from this
+      list. Change the text between the quotes, save, refresh. That is it.
+   2. Photos: upload image files into the "images" folder using the exact
+      file names written below (or change the names here to match yours).
+      Until you do, the site shows a tidy labeled placeholder, so nothing
+      ever looks broken.
+   3. PDFs and other documents you want to link (reports, projects): upload
+      them into the "files" folder, then point a work item's "link" at it,
+      for example  link: "files/my-new-report.pdf"
+   4. To hide a whole section, empty its list. For example  work: [],
+   5. Rules that keep the file healthy: keep the quotes around text, keep
+      the comma at the end of each line, and never delete a { } or [ ]
+      pair. If the page ever goes blank, undo your last change.
+   6. The step-by-step guide (publishing, photos, colors) is in README.md.
+   ======================================================================== */
+
+const SITE = {
+
+  /* ---- Who you are ------------------------------------------------------ */
+  firstName: "Matthew",
+  lastName: "Mueller",
+  /* One sentence under your name. Keep it under 20 words. */
+  tagline: "Accounting and Information Systems student at UW Foster, incoming audit intern at Deloitte, and competitive cyclist.",
+
+  /* ---- Contact and links ------------------------------------------------ */
+  email: "mattmuel@uw.edu",
+  /* Your resume PDF sits next to this file. Replace resume.pdf with a new
+     file of the same name to update it. Set to "" to hide the button. */
+  resumeFile: "resume.pdf",
+  links: [
+    /* Paste your real addresses between the quotes. A link with url: ""
+       stays hidden, so nothing broken ever shows on the live site. */
+    { label: "LinkedIn", url: "" },
+    { label: "Strava",   url: "" },
+    { label: "GitHub",   url: "" },
+  ],
+
+  /* ---- Your photo (shows next to your name at the top) ------------------ */
+  photo: "images/headshot.jpg",
+  photoAlt: "Portrait of Matthew Mueller",
+
+  /* ---- About ------------------------------------------------------------ */
+  about: {
+    /* The first paragraph appears larger than the rest. */
+    paragraphs: [
+      "I'm a junior at the University of Washington's Foster School of Business, a direct admit studying Accounting and Information Systems, on track for CPA exam eligibility in June 2028. This summer I join Deloitte as an audit intern.",
+      "Before that: two summers co-authoring biomedical AI research at Stanford University School of Medicine, three years on a congressional student advisory board writing 120-page legislative proposals, and a lot of hours showing prospective families around campus as a UW tour guide.",
+      "The common thread is the same everywhere. Take something messy, measure it honestly, and turn it into a decision someone can trust.",
+    ],
+    currently: [
+      "Incoming Audit Intern at Deloitte",
+      "Member of UW Beta Alpha Psi",
+      "Foster School Honors Program",
+      "Racing criteriums and stage races",
+    ],
+  },
+
+  /* ---- Experience -------------------------------------------------------- */
+  experience: [
+    {
+      role: "Tour Guide, Campus Visit Program",
+      org: "University of Washington, Department of Admissions",
+      where: "Seattle, WA",
+      dates: "Jan 2026 to present",
+      bullets: [
+        "Lead campus tours for prospective students and families, representing UW academics and admissions to diverse audiences.",
+        "Provide student-facing recommendations on admissions processes to the Vice Provost and senior leadership.",
+      ],
+    },
+    {
+      role: "Administrative Associate, Special Projects",
+      org: "Stanford University School of Medicine, Dept. of Radiology",
+      where: "Palo Alto, CA",
+      dates: "Summers 2024 and 2025",
+      bullets: [
+        "Co-authored biomedical AI research, labeling 1,500+ X-ray images with over 99% inter-annotator reliability.",
+        "Built a 1,200-entry Excel information system for alumni and institutional recordkeeping, cutting record-retrieval time.",
+        "Developed three survey tools assessing radiologist workflows, with stakeholder feedback loops and version control.",
+      ],
+    },
+    {
+      role: "Assistant Director for Representation",
+      org: "UW RCSA, Hall Council Executive Board",
+      where: "Seattle, WA",
+      dates: "Sep 2025 to present",
+      bullets: [
+        "Oversee representatives to RCSA, ASUW, and the Budget Advisory Committee, and facilitate hall council votes on legislation and initiatives.",
+        "Serve as liaison between Hall Council and campus-wide student governance bodies.",
+      ],
+    },
+    {
+      role: "Subgroup Lead and Member",
+      org: "Congresswoman Eshoo's Student Advisory Board",
+      where: "Remote",
+      dates: "Sep 2021 to Jun 2024",
+      bullets: [
+        "Co-authored and presented three annual 120-page legislative proposals on infrastructure and sustainability for California's 16th District.",
+        "Led a six-member subgroup: delegating tasks, setting milestones, and incorporating prior-session guidance.",
+      ],
+    },
+  ],
+
+  education: [
+    {
+      school: "University of Washington, Foster School of Business",
+      degree: "B.A. Business Administration, Accounting & Information Systems",
+      dates: "Expected Jun 2028",
+      notes: [
+        "3.87 cumulative GPA, Dean's List every quarter",
+        "Direct admit, Foster Honors Program",
+        "Purple & Gold Scholar",
+      ],
+    },
+  ],
+
+  skills: [
+    "Excel (PivotTables, INDEX/MATCH, statistical modeling)",
+    "Alteryx", "Tableau", "SQL", "R",
+    "Generative AI workflows", "Qualtrics", "Google Workspace",
+  ],
+
+  /* ---- Selected work ------------------------------------------------------
+     The FIRST item in this list is shown large. Add as many as you like;
+     new ones flow into the grid below it. "link" can point at a PDF in the
+     files folder or at any web address. Leave link: "" to show no link.
+     "image" is optional; leave "" for a text-only tile.                    */
+  work: [
+    {
+      title: "Survey analytics in a student organization",
+      year: "2025",
+      blurb: "An end-to-end statistical study of a 40-member student film production club: survey design, Cronbach's alpha reliability testing, Pearson correlations, and regression analysis in Python, delivered as a formal report.",
+      tags: ["python", "statistics", "research"],
+      link: "files/mgmt-300-final-report.pdf",
+      linkLabel: "Read the report (PDF)",
+      image: "",
+    },
+    {
+      title: "Legislative proposal for California's 16th District",
+      year: "2024",
+      blurb: "The final report of Congresswoman Eshoo's Student Advisory Board. I co-authored and presented this 120-page proposal on infrastructure and sustainability as a subgroup lead.",
+      tags: ["policy", "writing", "leadership"],
+      link: "files/2024-sab-final-report.pdf",
+      linkLabel: "Read the report (PDF)",
+      image: "",
+    },
+    {
+      title: "Group travel product concept for Turo",
+      year: "2025",
+      blurb: "An information systems group project proposing a group-travel booking feature: user flows, requirements, and a clickable Figma prototype.",
+      tags: ["figma", "product", "systems design"],
+      link: "",
+      linkLabel: "View the prototype",
+      image: "",
+    },
+  ],
+
+  /* ---- Off the clock ------------------------------------------------------ */
+  beyond: {
+    heading: "I race bikes.",
+    paragraphs: [
+      "I'm about a year into competitive cycling: criteriums and stage races around Washington, including the Ravensdale Spring Classic and the Tour de Bloom. I ride a Canyon Endurace, and I've learned to do all my own maintenance, which is its own kind of satisfying.",
+      "Mostly it's a lot of unglamorous base miles. That part I don't mind.",
+    ],
+    facts: [],
+    photo: "images/riding.jpg",
+    photoAlt: "Matthew riding his road bike",
+  },
+
+  /* ---- Contact ------------------------------------------------------------ */
+  contact: {
+    heading: "Let's talk.",
+    line: "Open to conversations about audit, analytics, product, or a good climb near Seattle.",
+  },
+};
+/* ============================  END OF EDITS  ============================= */
+</script>
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   One accent color for the whole site. To re-theme, change the
+   two accent values below (one for light mode, one for dark).
+   Corner-radius system: 0 everywhere. Sharp is the brand.
+   ============================================================ */
+@font-face{
+  font-family:"Space Grotesk";
+  src:url("fonts/space-grotesk-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight:300 700; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"Geist";
+  src:url("fonts/geist-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight:100 900; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"Geist Mono";
+  src:url("fonts/geist-mono-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight:100 900; font-style:normal; font-display:swap;
+}
+
+:root{
+  --bg:        #F6F7F4;
+  --surface:   #FCFDFB;
+  --ink:       #171A17;
+  --ink-2:     #50564E;
+  --accent:    #175C3D;   /* racing green: the ledger and the bike */
+  --accent-press: #114730;
+  --on-accent: #F6F7F4;
+  --tint:      #E5EDE6;
+  --tint-ink:  #123B28;
+  --line:      #DBDFD7;
+
+  --font-display:"Space Grotesk","Avenir Next","Segoe UI",sans-serif;
+  --font-body:"Geist","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"Geist Mono","SF Mono",Menlo,monospace;
+
+  --maxw:1200px;
+  --pad:clamp(20px, 4vw, 48px);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:        #121513;
+    --surface:   #181C19;
+    --ink:       #E8EBE5;
+    --ink-2:     #A6ACA2;
+    --accent:    #8CCCA6;
+    --accent-press: #A5DBBB;
+    --on-accent: #10251A;
+    --tint:      #1A231D;
+    --tint-ink:  #C4E3D0;
+    --line:      #272C27;
+  }
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+@media (prefers-reduced-motion: no-preference){
+  html{ scroll-behavior:smooth; }
+}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{ display:block; max-width:100%; }
+a{ color:inherit; }
+::selection{ background:var(--accent); color:var(--on-accent); }
+:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 var(--pad); }
+
+.skip-link{
+  position:absolute; left:-9999px; top:0; z-index:100;
+  background:var(--accent); color:var(--on-accent);
+  padding:10px 18px; font-size:14px; text-decoration:none;
+}
+.skip-link:focus{ left:0; }
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-block;
+  font-family:var(--font-body);
+  font-weight:500;
+  font-size:15px;
+  white-space:nowrap;
+  text-decoration:none;
+  padding:13px 26px;
+  border:1px solid transparent;
+  transition:background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+.btn:hover{ transform:translateY(-1px); }
+.btn:active{ transform:scale(.98); }
+.btn-primary{ background:var(--accent); color:var(--on-accent); }
+.btn-primary:hover{ background:var(--accent-press); }
+.btn-ghost{ border-color:var(--ink); color:var(--ink); }
+.btn-ghost:hover{ background:var(--ink); color:var(--bg); }
+.btn-small{ padding:9px 18px; font-size:14px; }
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;
+  transition:border-color .25s ease;
+}
+.nav.scrolled{ border-bottom-color:var(--line); }
+.nav-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  height:64px;
+}
+.wordmark{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:18px;
+  letter-spacing:-0.01em;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.nav-links{ display:flex; gap:28px; list-style:none; margin-left:auto; }
+.nav-links a{
+  font-size:14.5px; font-weight:500;
+  color:var(--ink-2);
+  text-decoration:none;
+  transition:color .15s ease;
+}
+.nav-links a:hover{ color:var(--accent); }
+@media (max-width:760px){ .nav-links{ display:none; } }
+
+/* ---------- hero ---------- */
+.hero{
+  padding-top:clamp(44px, 8vh, 92px);
+  padding-bottom:clamp(44px, 7vh, 80px);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:clamp(32px, 5vw, 72px);
+  align-items:center;
+}
+@media (max-width:860px){
+  .hero-grid{ grid-template-columns:1fr; }
+}
+.hero-name{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(52px, 9vw, 112px);
+  line-height:.98;
+  letter-spacing:-0.03em;
+}
+.hero-tagline{
+  margin-top:24px;
+  font-size:clamp(17px, 1.9vw, 20px);
+  color:var(--ink-2);
+  max-width:34ch;
+}
+.hero-actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:34px; }
+
+.hero-portrait{
+  position:relative;
+  aspect-ratio:4/5;
+  max-width:440px;
+  justify-self:end;
+  width:100%;
+}
+@media (max-width:860px){ .hero-portrait{ justify-self:start; max-width:380px; } }
+.hero-portrait::before{
+  content:""; position:absolute; inset:0;
+  transform:translate(16px, 16px);
+  background:var(--tint);
+  z-index:0;
+}
+.hero-portrait .frame{
+  position:relative; z-index:1;
+  width:100%; height:100%;
+  background:var(--surface);
+  border:1px solid var(--line);
+  overflow:hidden;
+}
+.hero-portrait img{ width:100%; height:100%; object-fit:cover; }
+
+/* hero load-in cascade: gives the page an arrival order (hierarchy) */
+@media (prefers-reduced-motion: no-preference){
+  .hero .rise{
+    opacity:0;
+    animation:rise .7s cubic-bezier(.16,1,.3,1) forwards;
+  }
+  .hero .rise:nth-child(1){ animation-delay:.05s; }
+  .hero .rise:nth-child(2){ animation-delay:.14s; }
+  .hero .rise:nth-child(3){ animation-delay:.23s; }
+  .hero .hero-portrait{
+    opacity:0;
+    animation:rise .8s cubic-bezier(.16,1,.3,1) .2s forwards;
+  }
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(18px); }
+    to{ opacity:1; transform:none; }
+  }
+}
+
+/* ---------- small value + label pairs (used by the cycling section) ---------- */
+.stat-value{
+  font-family:var(--font-mono);
+  font-weight:500;
+  font-size:clamp(24px, 3vw, 34px);
+  letter-spacing:-0.02em;
+  font-variant-numeric:tabular-nums;
+}
+.stat-label{
+  margin-top:6px;
+  font-size:13.5px;
+  color:var(--ink-2);
+  line-height:1.45;
+}
+
+/* ---------- sections ---------- */
+.section{ padding-top:clamp(88px, 12vh, 132px); }
+.section-title{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(30px, 4vw, 46px);
+  letter-spacing:-0.02em;
+  line-height:1.05;
+}
+
+/* ---------- about ---------- */
+.about-body{
+  margin-top:40px;
+  max-width:720px;
+}
+@media (min-width:1000px){
+  .about-body{ margin-left:clamp(0px, 20%, 240px); }
+}
+.about-body p{ color:var(--ink-2); }
+.about-body p.lede{
+  color:var(--ink);
+  font-size:clamp(20px, 2.4vw, 25px);
+  line-height:1.45;
+  letter-spacing:-0.01em;
+}
+.about-body p + p{ margin-top:20px; }
+.currently{ margin-top:44px; }
+.currently h3{
+  font-family:var(--font-display);
+  font-weight:600; font-size:18px; letter-spacing:-0.01em;
+  margin-bottom:14px;
+}
+.currently ul{
+  list-style:none;
+  display:grid; grid-template-columns:1fr 1fr; gap:10px 32px;
+}
+@media (max-width:640px){ .currently ul{ grid-template-columns:1fr; } }
+.currently li{
+  font-size:15.5px;
+  border-left:2px solid var(--accent);
+  padding-left:14px;
+}
+
+/* ---------- experience ---------- */
+.xp{ margin-top:14px; }
+.xp-item{
+  display:grid;
+  grid-template-columns:230px 1fr;
+  gap:clamp(20px, 4vw, 56px);
+  padding:34px 0;
+}
+.xp-item + .xp-item{ border-top:1px solid var(--line); }
+@media (max-width:760px){ .xp-item{ grid-template-columns:1fr; gap:10px; padding:28px 0; } }
+.xp-meta{
+  font-family:var(--font-mono);
+  font-size:13px;
+  color:var(--ink-2);
+  line-height:1.9;
+}
+.xp-role{
+  font-family:var(--font-display);
+  font-weight:600; font-size:20px; letter-spacing:-0.01em;
+}
+.xp-org{ color:var(--accent); font-weight:500; font-size:15.5px; margin-top:3px; }
+.xp-bullets{ margin-top:14px; list-style:none; display:grid; gap:9px; }
+.xp-bullets li{
+  color:var(--ink-2); font-size:15.5px;
+  padding-left:18px; position:relative;
+}
+.xp-bullets li::before{
+  content:""; position:absolute; left:0; top:.68em;
+  width:8px; height:2px; background:var(--accent);
+}
+.xp-sub{
+  font-family:var(--font-display);
+  font-weight:600; font-size:18px; letter-spacing:-0.01em;
+  margin-top:56px;
+}
+.skills-row{
+  margin-top:16px;
+  display:flex; flex-wrap:wrap; gap:8px;
+}
+.skill{
+  font-size:14px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  padding:7px 14px;
+}
+
+/* ---------- work ---------- */
+.work-grid{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+@media (max-width:760px){ .work-grid{ grid-template-columns:1fr; } }
+.work-cell{
+  display:flex; flex-direction:column;
+  padding:clamp(26px, 3.5vw, 44px);
+  min-height:280px;
+  transition:transform .2s ease;
+}
+.work-cell.featured{ grid-column:1 / -1; background:var(--tint); color:var(--tint-ink); min-height:320px; }
+.work-cell.solid{ background:var(--accent); color:var(--on-accent); }
+.work-cell.lined{ background:var(--surface); border:1px solid var(--line); }
+.work-cell:hover{ transform:translateY(-3px); }
+@media (prefers-reduced-motion: reduce){ .work-cell:hover{ transform:none; } }
+.work-media{
+  aspect-ratio:16/10;
+  margin:calc(-1 * clamp(26px, 3.5vw, 44px));
+  margin-bottom:clamp(22px, 3vw, 32px);
+  overflow:hidden;
+}
+.work-media img{ width:100%; height:100%; object-fit:cover; }
+.work-meta{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  opacity:.75;
+}
+.work-title{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.015em;
+  font-size:clamp(22px, 2.6vw, 30px);
+  line-height:1.12;
+  margin-top:10px;
+}
+.featured .work-title{ font-size:clamp(26px, 3.4vw, 40px); max-width:22ch; }
+.work-blurb{
+  margin-top:14px;
+  font-size:15.5px;
+  max-width:62ch;
+  opacity:.85;
+  flex:1;
+}
+.work-link{
+  margin-top:22px;
+  align-self:flex-start;
+  font-weight:500;
+  font-size:15px;
+  text-decoration:underline;
+  text-underline-offset:4px;
+  text-decoration-thickness:1px;
+}
+.work-link .arrow{ display:inline-block; transition:transform .18s ease; }
+.work-link:hover .arrow{ transform:translate(2px, -2px); }
+
+/* ---------- off the clock ---------- */
+.beyond{
+  margin-top:clamp(88px, 12vh, 132px);
+  background:var(--tint);
+  color:var(--tint-ink);
+  padding:clamp(64px, 9vh, 104px) 0;
+}
+.beyond .section-title{ max-width:16ch; }
+.beyond-body{ margin-top:28px; max-width:62ch; }
+.beyond-body p + p{ margin-top:16px; }
+.beyond-body p{ opacity:.85; }
+.beyond-facts{
+  margin-top:40px;
+  display:grid; grid-template-columns:repeat(3, auto); gap:20px clamp(28px, 5vw, 72px);
+  justify-content:start;
+}
+@media (max-width:640px){ .beyond-facts{ grid-template-columns:1fr; } }
+.beyond-facts .stat-value{ font-size:19px; }
+.beyond-facts .stat-label{ color:inherit; opacity:.7; }
+.beyond-photo{
+  margin-top:48px;
+  aspect-ratio:21/9;
+  overflow:hidden;
+}
+@media (max-width:640px){ .beyond-photo{ aspect-ratio:4/3; } }
+.beyond-photo img{ width:100%; height:100%; object-fit:cover; }
+
+/* ---------- contact ---------- */
+.contact-heading{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(44px, 7.5vw, 96px);
+  letter-spacing:-0.03em;
+  line-height:1;
+}
+.contact-line{ margin-top:20px; color:var(--ink-2); max-width:52ch; }
+.contact-email{
+  display:inline-block;
+  margin-top:32px;
+  font-family:var(--font-mono);
+  font-size:clamp(18px, 2.6vw, 30px);
+  letter-spacing:-0.01em;
+  color:var(--accent);
+  text-decoration:underline;
+  text-underline-offset:6px;
+  text-decoration-thickness:1px;
+}
+.contact-email:hover{ color:var(--accent-press); }
+.contact-links{
+  margin-top:28px;
+  display:flex; flex-wrap:wrap; gap:10px 26px;
+  list-style:none;
+}
+.contact-links a{
+  font-size:15px; font-weight:500;
+  color:var(--ink-2);
+  text-decoration:none;
+}
+.contact-links a:hover{ color:var(--accent); }
+
+/* ---------- footer ---------- */
+.footer{
+  margin-top:clamp(72px, 10vh, 110px);
+  border-top:1px solid var(--line);
+  padding:26px 0 44px;
+  display:flex; flex-wrap:wrap; gap:10px 24px;
+  justify-content:space-between;
+  color:var(--ink-2);
+  font-size:14px;
+}
+.footer a{ color:inherit; text-decoration:none; }
+.footer a:hover{ color:var(--accent); }
+
+/* ---------- photo placeholder (shows until you add real photos) ---------- */
+.ph{
+  width:100%; height:100%;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:8px;
+  background:var(--surface);
+  border:1px dashed var(--line);
+  color:var(--ink-2);
+  text-align:center;
+  padding:18px;
+}
+.ph-name{ font-family:var(--font-mono); font-size:12.5px; color:var(--ink); }
+.ph-hint{ font-size:12.5px; max-width:24ch; }
+
+/* ---------- scroll reveals ---------- */
+.reveal{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: no-preference){
+  .reveal{
+    opacity:0; transform:translateY(14px);
+    transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
+    transition-delay:var(--d, 0s);
+  }
+  .reveal.in{ opacity:1; transform:none; }
+}
+</style>
+</head>
+
+<body id="top">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="nav-sentinel" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="#top" id="wordmark"></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Work</a></li>
+    </ul>
+    <a class="btn btn-primary btn-small" id="nav-cta" href="#contact">Get in touch</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-name rise" id="hero-name"></h1>
+        <p class="hero-tagline rise" id="hero-tagline"></p>
+        <div class="hero-actions rise" id="hero-actions"></div>
+      </div>
+      <figure class="hero-portrait" id="hero-portrait"></figure>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section wrap" id="about">
+    <h2 class="section-title reveal">About</h2>
+    <div class="about-body">
+      <div id="about-paragraphs"></div>
+      <div class="currently reveal" id="currently">
+        <h3>Currently</h3>
+        <ul id="currently-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section wrap" id="experience">
+    <h2 class="section-title reveal">Experience</h2>
+    <div class="xp" id="xp-list"></div>
+    <h3 class="xp-sub reveal" id="edu-heading">Education</h3>
+    <div class="xp" id="edu-list"></div>
+    <h3 class="xp-sub reveal" id="skills-heading">Toolkit</h3>
+    <div class="skills-row" id="skills-row"></div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="section wrap" id="work">
+    <h2 class="section-title reveal">Selected work</h2>
+    <div class="work-grid" id="work-grid"></div>
+  </section>
+
+  <!-- OFF THE CLOCK -->
+  <section class="beyond" id="beyond">
+    <div class="wrap">
+      <h2 class="section-title reveal" id="beyond-heading"></h2>
+      <div class="beyond-body reveal" id="beyond-paragraphs"></div>
+      <div class="beyond-facts" id="beyond-facts"></div>
+      <figure class="beyond-photo reveal" id="beyond-photo"></figure>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section wrap" id="contact">
+    <div class="reveal">
+      <h2 class="contact-heading" id="contact-heading"></h2>
+      <p class="contact-line" id="contact-line"></p>
+      <a class="contact-email" id="contact-email" href="#"></a>
+      <ul class="contact-links" id="contact-links"></ul>
+    </div>
+  </section>
+
+  <footer class="footer wrap">
+    <span id="footer-left"></span>
+    <a href="#top">Back to top</a>
+  </footer>
+
+</main>
+
+<script>
+/* ============================================================
+   RENDERING. You should not need to edit below this line.
+   ============================================================ */
+(function(){
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "")
+    .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;").replaceAll("'","&#39;");
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fullName = [SITE.firstName, SITE.lastName].filter(Boolean).join(" ");
+
+  /* --- image slots with labeled placeholders --- */
+  function imgSlot(src, alt, container){
+    const expected = src || "images/photo.jpg";
+    if (!src){ container.appendChild(placeholder(expected)); return; }
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = alt || "";
+    img.loading = "lazy";
+    img.addEventListener("error", () => { img.replaceWith(placeholder(src)); });
+    container.appendChild(img);
+  }
+  function placeholder(path){
+    const div = document.createElement("div");
+    div.className = "ph";
+    div.innerHTML =
+      '<span class="ph-name">' + esc(path.split("/").pop()) + '</span>' +
+      '<span class="ph-hint">Upload this photo to the images folder</span>';
+    return div;
+  }
+
+  /* --- head, nav, hero --- */
+  document.title = fullName + " | " + "Accounting & Information Systems at UW Foster";
+  $("wordmark").textContent = fullName;
+
+  $("hero-name").innerHTML = esc(SITE.firstName) +
+    (SITE.lastName ? "<br>" + esc(SITE.lastName) : "");
+  $("hero-tagline").textContent = SITE.tagline || "";
+
+  const actions = [];
+  if (SITE.email) actions.push('<a class="btn btn-primary" href="mailto:' + esc(SITE.email) + '">Get in touch</a>');
+  if (SITE.resumeFile) actions.push('<a class="btn btn-ghost" href="' + esc(SITE.resumeFile) + '" download>Download resume</a>');
+  $("hero-actions").innerHTML = actions.join("");
+  if (SITE.email) $("nav-cta").href = "mailto:" + SITE.email;
+
+  const portraitFrame = document.createElement("div");
+  portraitFrame.className = "frame";
+  imgSlot(SITE.photo, SITE.photoAlt, portraitFrame);
+  $("hero-portrait").appendChild(portraitFrame);
+
+  /* --- about --- */
+  $("about-paragraphs").innerHTML = (SITE.about?.paragraphs || [])
+    .map((p, i) => '<p class="reveal' + (i === 0 ? " lede" : "") + '">' + esc(p) + "</p>").join("");
+  $("currently-list").innerHTML = (SITE.about?.currently || [])
+    .map(c => "<li>" + esc(c) + "</li>").join("");
+  if (!SITE.about?.currently?.length) $("currently").style.display = "none";
+  if (!SITE.about?.paragraphs?.length) $("about").style.display = "none";
+
+  /* --- experience --- */
+  $("xp-list").innerHTML = (SITE.experience || []).map(x =>
+    '<article class="xp-item reveal">' +
+      '<div class="xp-meta">' + esc(x.dates) + "<br>" + esc(x.where) + "</div>" +
+      "<div>" +
+        '<h3 class="xp-role">' + esc(x.role) + "</h3>" +
+        '<p class="xp-org">' + esc(x.org) + "</p>" +
+        '<ul class="xp-bullets">' + (x.bullets || []).map(b => "<li>" + esc(b) + "</li>").join("") + "</ul>" +
+      "</div>" +
+    "</article>"
+  ).join("");
+
+  $("edu-list").innerHTML = (SITE.education || []).map(e =>
+    '<article class="xp-item reveal">' +
+      '<div class="xp-meta">' + esc(e.dates) + "</div>" +
+      "<div>" +
+        '<h3 class="xp-role">' + esc(e.school) + "</h3>" +
+        '<p class="xp-org">' + esc(e.degree) + "</p>" +
+        '<ul class="xp-bullets">' + (e.notes || []).map(n => "<li>" + esc(n) + "</li>").join("") + "</ul>" +
+      "</div>" +
+    "</article>"
+  ).join("");
+  if (!SITE.education?.length){ $("edu-heading").style.display = "none"; }
+
+  $("skills-row").innerHTML = (SITE.skills || [])
+    .map(s => '<span class="skill">' + esc(s) + "</span>").join("");
+  if (!SITE.skills?.length){ $("skills-heading").style.display = "none"; }
+  if (!SITE.experience?.length && !SITE.education?.length && !SITE.skills?.length){
+    $("experience").style.display = "none";
+  }
+
+  /* --- selected work: first item featured, the rest alternate styles --- */
+  const workGrid = $("work-grid");
+  (SITE.work || []).forEach((w, i) => {
+    const cell = document.createElement("article");
+    cell.className = "work-cell reveal " +
+      (i === 0 ? "featured" : (i % 2 === 1 ? "solid" : "lined"));
+    cell.style.setProperty("--d", (Math.min(i, 4) * 0.05) + "s");
+    if (w.image){
+      const media = document.createElement("div");
+      media.className = "work-media";
+      imgSlot(w.image, w.title, media);
+      cell.appendChild(media);
+    }
+    const body = document.createElement("div");
+    body.style.display = "flex";
+    body.style.flexDirection = "column";
+    body.style.flex = "1";
+    body.innerHTML =
+      (w.year || (w.tags && w.tags.length)
+        ? '<div class="work-meta">' + esc([w.year, (w.tags || []).join(", ")].filter(Boolean).join(" / ")) + "</div>"
+        : "") +
+      '<h3 class="work-title">' + esc(w.title) + "</h3>" +
+      '<p class="work-blurb">' + esc(w.blurb) + "</p>" +
+      (w.link
+        ? '<a class="work-link" href="' + esc(w.link) + '" target="_blank" rel="noopener">' +
+            esc(w.linkLabel || "View") + ' <span class="arrow">&#8599;</span></a>'
+        : "");
+    cell.appendChild(body);
+    workGrid.appendChild(cell);
+  });
+  if (!SITE.work?.length) $("work").style.display = "none";
+
+  /* --- off the clock --- */
+  if (SITE.beyond?.heading){
+    $("beyond-heading").textContent = SITE.beyond.heading;
+    $("beyond-paragraphs").innerHTML = (SITE.beyond.paragraphs || [])
+      .map(p => "<p>" + esc(p) + "</p>").join("");
+    $("beyond-facts").innerHTML = (SITE.beyond.facts || []).map((f, i) =>
+      '<div class="reveal" style="--d:' + (i * 0.06) + 's">' +
+        '<div class="stat-value">' + esc(f.value) + "</div>" +
+        '<div class="stat-label">' + esc(f.label) + "</div>" +
+      "</div>"
+    ).join("");
+    if (!SITE.beyond.facts?.length) $("beyond-facts").style.display = "none";
+    imgSlot(SITE.beyond.photo, SITE.beyond.photoAlt, $("beyond-photo"));
+  } else {
+    $("beyond").style.display = "none";
+  }
+
+  /* --- contact --- */
+  $("contact-heading").textContent = SITE.contact?.heading || "Let's talk.";
+  $("contact-line").textContent = SITE.contact?.line || "";
+  if (SITE.email){
+    $("contact-email").textContent = SITE.email;
+    $("contact-email").href = "mailto:" + SITE.email;
+  } else {
+    $("contact-email").style.display = "none";
+  }
+  $("contact-links").innerHTML = (SITE.links || [])
+    .filter(l => l.url)
+    .map(l => '<li><a href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
+      esc(l.label) + ' <span aria-hidden="true">&#8599;</span></a></li>').join("");
+
+  /* --- footer --- */
+  $("footer-left").textContent = "© " + new Date().getFullYear() + " " + fullName;
+
+  /* --- structured data for search engines --- */
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: fullName,
+    email: SITE.email ? "mailto:" + SITE.email : undefined,
+    affiliation: "University of Washington, Foster School of Business",
+    sameAs: (SITE.links || []).filter(l => l.url).map(l => l.url),
+  };
+  const ldTag = document.createElement("script");
+  ldTag.type = "application/ld+json";
+  ldTag.textContent = JSON.stringify(ld);
+  document.head.appendChild(ldTag);
+
+  /* --- nav border once the page scrolls (IntersectionObserver, no scroll listener) --- */
+  const nav = $("nav");
+  new IntersectionObserver(([entry]) => {
+    nav.classList.toggle("scrolled", !entry.isIntersecting);
+  }).observe($("nav-sentinel"));
+
+  /* --- scroll reveals + stat count-up trigger --- */
+  const reveals = document.querySelectorAll(".reveal");
+  if (prefersReduced || !("IntersectionObserver" in window)){
+    reveals.forEach(el => el.classList.add("in"));
+  } else {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      });
+    }, { threshold: .15 });
+    reveals.forEach(el => io.observe(el));
+  }
+})();
+</script>
+</body>
+</html>
