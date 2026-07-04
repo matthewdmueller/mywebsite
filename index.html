@@ -11,8 +11,20 @@
 <!-- After you publish, you can add a preview image for link sharing here.
      It must be a FULL address, for example:
      <meta property="og:image" content="https://YOURNAME.github.io/images/headshot.jpg"> -->
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6F7F4">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121513">
+<meta name="theme-color" content="#F6F7F4" id="meta-theme-color">
+<script>
+/* Applies light or dark mode before the page paints, so there is no flash.
+   Order of preference: the visitor's saved toggle choice, then their
+   system setting. */
+(function(){
+  var t = null;
+  try { t = localStorage.getItem("theme"); } catch(e){}
+  if (t !== "light" && t !== "dark"){
+    t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  document.documentElement.dataset.theme = t;
+})();
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23175C3D'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-size='34' font-weight='700' fill='%23F6F7F4' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -223,6 +235,7 @@ const SITE = {
 }
 
 :root{
+  color-scheme:light;
   --bg:        #F6F7F4;
   --surface:   #FCFDFB;
   --ink:       #171A17;
@@ -242,19 +255,20 @@ const SITE = {
   --pad:clamp(20px, 4vw, 48px);
 }
 
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:        #121513;
-    --surface:   #181C19;
-    --ink:       #E8EBE5;
-    --ink-2:     #A6ACA2;
-    --accent:    #8CCCA6;
-    --accent-press: #A5DBBB;
-    --on-accent: #10251A;
-    --tint:      #1A231D;
-    --tint-ink:  #C4E3D0;
-    --line:      #272C27;
-  }
+/* Dark mode tokens. A small script in <head> sets data-theme to the
+   visitor's saved choice (from the nav toggle) or their system setting. */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:        #121513;
+  --surface:   #181C19;
+  --ink:       #E8EBE5;
+  --ink-2:     #A6ACA2;
+  --accent:    #8CCCA6;
+  --accent-press: #A5DBBB;
+  --on-accent: #10251A;
+  --tint:      #1A231D;
+  --tint-ink:  #C4E3D0;
+  --line:      #272C27;
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
@@ -268,6 +282,9 @@ body{
   font-size:17px;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion: no-preference){
+  body{ transition:background-color .25s ease, color .25s ease; }
 }
 img{ display:block; max-width:100%; }
 a{ color:inherit; }
@@ -334,6 +351,23 @@ a{ color:inherit; }
 }
 .nav-links a:hover{ color:var(--accent); }
 @media (max-width:760px){ .nav-links{ display:none; } }
+
+/* light/dark toggle */
+.theme-toggle{
+  display:flex; align-items:center; justify-content:center;
+  width:38px; height:38px; flex:none;
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--ink);
+  cursor:pointer;
+  transition:border-color .18s ease, transform .18s ease;
+}
+.theme-toggle:hover{ border-color:var(--ink); transform:translateY(-1px); }
+.theme-toggle:active{ transform:scale(.98); }
+.theme-toggle svg{ width:18px; height:18px; }
+.theme-toggle .icon-sun{ display:none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun{ display:block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon{ display:none; }
 
 /* ---------- hero ---------- */
 .hero{
@@ -681,6 +715,11 @@ a{ color:inherit; }
       <li><a href="#experience">Experience</a></li>
       <li><a href="#work">Work</a></li>
     </ul>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
+      <!-- Icons: Phosphor Icons (phosphoricons.com), MIT license -->
+      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"/></svg>
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></svg>
+    </button>
     <a class="btn btn-primary btn-small" id="nav-cta" href="#contact">Get in touch</a>
   </div>
 </header>
@@ -923,6 +962,29 @@ a{ color:inherit; }
   ldTag.type = "application/ld+json";
   ldTag.textContent = JSON.stringify(ld);
   document.head.appendChild(ldTag);
+
+  /* --- light/dark toggle ---
+     The head script already applied the starting theme. This button flips
+     it, remembers the choice, and keeps following the system setting until
+     the visitor makes a manual choice. */
+  const toggleBtn = $("theme-toggle");
+  const themeMeta = document.getElementById("meta-theme-color");
+  function applyTheme(t, remember){
+    document.documentElement.dataset.theme = t;
+    toggleBtn.setAttribute("aria-label",
+      t === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    themeMeta.setAttribute("content", t === "dark" ? "#121513" : "#F6F7F4");
+    if (remember){ try { localStorage.setItem("theme", t); } catch(e){} }
+  }
+  applyTheme(document.documentElement.dataset.theme, false);
+  toggleBtn.addEventListener("click", () => {
+    applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
+  });
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+    let stored = null;
+    try { stored = localStorage.getItem("theme"); } catch(err){}
+    if (stored !== "light" && stored !== "dark") applyTheme(e.matches ? "dark" : "light", false);
+  });
 
   /* --- nav border once the page scrolls (IntersectionObserver, no scroll listener) --- */
   const nav = $("nav");
